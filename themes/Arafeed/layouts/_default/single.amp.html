@@ -9,19 +9,17 @@
 {{ .Render "summary" }}
 
 <div class="adj mrow">
-  <div class="mcol c6">
-    <header>Next Article</header>
+    <div class="mcol c6">
+      <header>Next Article</header>
     {{ with .NextInSection }}
-    {{ .Render "li_sm" }}
+      {{ .Render "li_sm" }}
     {{ end }}
-  </div>
-  <div class="mcol c6">
-    <header>Previous Article</header>
+    </div>
+    <div class="mcol c6">
+      <header>Previous Article</header>
     {{ with .PrevInSection }}
-    {{ .Render "li_sm" }}
+      {{ .Render "li_sm" }}
     {{ end }}
-  </div>
+    </div>
 </div>
-
-{{ template "_internal/disqus.html" . }}
 {{ end }}

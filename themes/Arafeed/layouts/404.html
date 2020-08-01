@@ -1,5 +1,7 @@
+{{ define "title" }}{{ if not .IsHome }}{{ .Title }} - {{ end }}{{ end }}
+
 {{ define "main" }}
-<h2 class="uk-text-center">
-  {{ .Title }}
-</h2>
+<header class="page-header">
+  <h1>{{ .Title }}</h1>
+</header>
 {{ end }}

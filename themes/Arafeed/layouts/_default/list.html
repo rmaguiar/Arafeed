@@ -1,18 +1,56 @@
-<div class="article-card">
-  <a class="dev" href="{{ .Permalink }}">
-    <img class="article-card__img" src="{{ if .Params.image }}{{ .Permalink }}/{{ .Params.image }}{{ else }}{{ .Site.BaseURL }}/img/default.png{{ end }}" alt="" />
-  </a>
-  <div class="article-card__body">
-    <a class="article-card__title" href="{{ .Permalink }}">
-      {{ .Title }}
-    </a>
-    <div class="article-card__meta">
-      <i class="far fa-calendar-alt fa-fw">&nbsp;</i>{{ .Date.Format "2006/01/02" }}&nbsp;&nbsp;<i class="fas fa-sync-alt fa-fw">&nbsp;</i>{{ .Lastmod.Format "2006/01/02" }}
+{{ define "title" }}{{ if not .IsHome }}{{ .Title }} - {{ end }}{{ end }}
+
+{{ define "main" }}
+{{ if not .IsHome }}
+<header class="page-title">
+  <h1 class="title">{{ .Title }}</h1>
+</header>
+{{ end }}
+
+<div class="articles">
+  <div class="mrow">
+
+    {{ $pctx := . }}
+    {{ if .IsHome }}{{ $pctx = .Site }}{{ end }}
+    {{ $paginator := .Paginate $pctx.RegularPages }}
+    {{ range $paginator.Pages }}
+    <div class="mcol c6">
+      <article class="li">
+        <a href="{{ .Permalink }}">
+          <div class="thumb thumb-{{ .File.UniqueID }}"></div>
+
+          <div class="inner">
+            <h2 class="title">{{ .Title }}</h2>
+
+            <ul class="facts">
+              <li><i class="fas fa-calendar" aria-hidden="true"></i><time datetime="{{ .Date.Format "2006-01-02T15:04:05JST" }}">{{ .Date.Format ( .Site.Params.dateformat | default "Jan 2, 2006") }}</time></li>
+              {{ with .Section }}<li><i class="fas fa-bookmark" aria-hidden="true"></i>{{ . | upper }}</li>{{ end }}
+              {{ if eq (getenv "HUGO_ENV") "DEV" }}
+              <li>{{ .WordCount }} Words</li>
+              {{ end }}
+              {{ if .Draft }}
+              <li style="color: #2196f3;">DRAFT</li>
+              {{ end }}
+            </ul>
+
+            <div class="summary">{{ plainify .Summary | safeHTML }}</div>
+          </div>
+        </a>
+      </article>
     </div>
-    <div class="article-card__meta">
-      {{ if .Params.tags }}
-      <i class="fas fa-tags fa-fw"></i>{{ range .Params.tags }}&nbsp;<a class="article-card__tag" href="/tags/{{ lower . }}">{{ . }}</a>&nbsp;{{ end }}
-      {{ end }}
-    </div>
+    {{ end }}
+
   </div>
 </div>
+
+{{ if or (.Paginator.HasPrev) (.Paginator.HasNext) }}
+<nav class="paging">
+  {{ if .Paginator.HasPrev }}
+  <a href="{{ .Paginator.Prev.URL }}" rel="prev">Prev</a>
+  {{ end }}
+  {{ if .Paginator.HasNext }}
+  <a href="{{ .Paginator.Next.URL }}" rel="next">Next</a>
+  {{ end }}
+</nav>
+{{ end }}
+{{ end }}
