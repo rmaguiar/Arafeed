@@ -1,4 +1,4 @@
-baseURL = "https://mofeed.netlify.app/"
+baseURL = "/"
 languageCode = "ar-SA"
 DefaultContentLanguage = "ar"
 title = "arafeed"
