@@ -4,7 +4,7 @@ hasCJKLanguage = true
 paginate = 12
 summaryLength = 140
 title = "Arafeed"
-theme = "Arafeed"
+theme = "feed"
 
 
 [permalinks]

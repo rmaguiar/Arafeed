@@ -1,0 +1,6 @@
+{{ $inner := .Inner | markdownify }}
+{{ if .Get "head" }}
+{{ $inner | replaceRE "<table>" "<table class=\"article-table\">" | safeHTML }}
+{{ else}}
+{{ $inner | replaceRE "<table>" "<table class=\"article-table article-table--headless\">" | safeHTML }}
+{{ end }}

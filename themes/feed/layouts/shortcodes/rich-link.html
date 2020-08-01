@@ -1,0 +1,45 @@
+<p>
+<div class="article-rich-link">
+  <div class="uk-grid-collapse uk-flex-middle" uk-grid>
+    {{ if .Get "img" }}
+    <div class="article-rich-link__body uk-width-1-4@m uk-text-center">
+      {{ if or (.Get "amazon") (.Get "rakuten") (.Get "url") }}
+      <a href="{{ if .Get "amazon" }}{{ .Get "amazon" }}{{ else if .Get "rakuten" }}{{ .Get "rakuten" }}{{ else if .Get "url" }}{{ .Get "url" }}{{ end }}" target="_blank" rel="noopener">
+        <img class="article-rich-link__img" src="{{ .Get "img" }}" alt="" />
+      </a>
+      {{ else }}
+      <img class="article-rich-link__img" src="{{ .Get "img" }}" alt="" />
+      {{ end }}
+    </div>
+    {{ end }}
+    <div class="article-rich-link__body uk-width-expand">
+      {{ if .Get "title" }}
+      <h4 class="article-rich-link__title">
+        {{ if or (.Get "amazon") (.Get "rakuten") (.Get "url") }}
+        <a href="{{ if .Get "amazon" }}{{ .Get "amazon" }}{{ else if .Get "rakuten" }}{{ .Get "rakuten" }}{{ else if .Get "url" }}{{ .Get "url" }}{{ end }}" target="_blank" rel="noopener">
+          {{ .Get "title" }}
+          {{ else }}
+          {{ .Get "title" }}
+          {{ end }}
+        </a>
+      </h4>
+      {{ end }}
+      <div class="article-rich-link__desc">
+        {{ .Inner | truncate 140 }}
+      </div>
+      <div class="article-rich-link__btn-group uk-grid-collapse uk-child-width-expand" uk-grid>
+        {{ if .Get "amazon" }}
+        <a class="btn btn--amazon" href="{{ .Get "amazon" }}" target="_blank" rel="noopener">
+          <i class="fab fa-amazon fa-lg fa-fw"></i>
+        </a>
+        {{ end }}
+        {{ if .Get "rakuten" }}
+        <a class="btn btn--rakuten" href="{{ .Get "rakuten" }}" target="_blank" rel="noopener">
+          <i class="fas fa-registered fa-lg fa-fw"></i>
+        </a>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</div>
+</p>
