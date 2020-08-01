@@ -1,0 +1,34 @@
+baseURL = "https://arafeed.netlify.app/"
+enableRobotsTXT = true
+googleAnalytics = "UA-123-45"
+hasCJKLanguage = true
+languageCode = "ja-jp"
+paginate = 12
+summaryLength = 140
+title = "深紅"
+
+[author]
+  name = "山田 太郎"
+  desc = "この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。"
+  github = "github"
+  twitter = "twitter"
+  mail = "example@mail.com"
+
+[params]
+  desc = "この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。"
+  tagLength = 16
+  googleAdsClientID = "ca-pub-0123456789"
+  googleAdsUnitID = ""
+
+[related]
+  threshold = 0
+  includeNewer = true
+  [[related.indices]]
+    name = "tags"
+    weight = 2
+  [[related.indices]]
+    name = "date"
+    weight = 1
+
+[taxonomies]
+  tag = "tags"
