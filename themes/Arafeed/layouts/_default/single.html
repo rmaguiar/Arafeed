@@ -1,0 +1,85 @@
+{{ define "main" }}
+<article class="container__article">
+  <h1 class="article-h1">
+    {{ .Title }}
+  </h1>
+  <p class="article-meta">
+    <i class="far fa-calendar-alt fa-fw">&nbsp;</i>{{ .Date.Format "2006/01/02" }}&nbsp;&nbsp;<i class="fas fa-sync-alt fa-fw">&nbsp;</i>{{ .Lastmod.Format "2006/01/02" }}
+  </p>
+  <p class="article-meta">
+    {{ if .Params.tags }}
+    <i class="fas fa-tags fa-fw"></i>{{ range .Params.tags }}&nbsp;<a class="article-meta__tag" href="/tags/{{ lower . }}">{{ . }}</a>&nbsp;{{ end }}
+    {{ end }}
+  </p>
+  <!-- Google AdSense -->
+  {{ if and .Site.Params.googleAdsClientID .Site.Params.googleAdsUnitID .Params.googleAds }}
+  <p class="uk-hidden@m">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="{{ .Site.Params.googleAdsClientID }}" data-ad-slot="{{ .Site.Params.googleAdsUnitID }}" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </p>
+  {{ end }}
+  <!-- /Google AdSense -->
+  <p>
+    {{ partial "social-btn.html" . }}
+  </p>
+  <!-- Content -->
+  {{ $content := .Content }}
+  {{ range findRE "id=\".+?\"" .Content }}
+  {{ $hash := . | replaceRE "id=\"" "" | replaceRE "\"" "" | md5 }}
+  {{ $content = $content | replaceRE . (print "id=\"_" $hash "\"") }}
+  {{ end }}
+  {{ range findRE "href=\"#.+?\"" $content }}
+  {{ $hash := . | replaceRE "href=\"" "" | replaceRE "\"" "" | replaceRE "#" "" | md5 }}
+  {{ $content = $content | replaceRE . (print "href=\"#_" $hash "\"") }}
+  {{ end }}
+  {{ $content | safeHTML }}
+  <!-- /Content -->
+  <p>
+    {{ partial "social-btn.html" . }}
+  </p>
+  <!-- Google AdSense -->
+  {{ if and .Site.Params.googleAdsClientID .Site.Params.googleAdsUnitID .Params.googleAds }}
+  <p>
+    <ins class="adsbygoogle" style="display:block" data-ad-client="{{ .Site.Params.googleAdsClientID }}" data-ad-slot="{{ .Site.Params.googleAdsUnitID }}" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </p>
+  {{ end }}
+  <!-- /Google AdSense -->
+</article>
+{{ end }}
+
+{{ define "sidebar" }}
+<p class="heading-line">
+  管理者
+</p>
+{{ partial "profile-card.html" . }}
+<p></p>
+<div uk-sticky="offset: 20; bottom: true">
+  <p class="heading-line">
+    目次
+  </p>
+  <!-- TOC -->
+  {{ $toc := .TableOfContents | replaceRE "<nav id=\"TableOfContents\">" "<nav class=\"TableOfContents\" uk-scrollspy-nav=\"closest: li\">" }}
+  {{ range findRE "href=\"#.+?\"" $toc }}
+  {{ $hash := . | replaceRE "href=\"" "" | replaceRE "\"" "" | replaceRE "#" "" | md5 }}
+  {{ $toc = $toc | replaceRE . (print "href=\"#_" $hash "\"") }}
+  {{ end }}
+  {{ $toc | safeHTML }}
+  <!-- /TOC -->
+  {{ partial "article-list.html" . }}
+  <!-- Google AdSense -->
+  {{ if and .Site.Params.googleAdsClientID .Site.Params.googleAdsUnitID .Params.googleAds }}
+  <p>
+    <ins class="adsbygoogle" style="display:block" data-ad-client="{{ .Site.Params.googleAdsClientID }}" data-ad-slot="{{ .Site.Params.googleAdsUnitID }}" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </p>
+  {{ end }}
+  <!-- /Google AdSense -->
+</div>
+{{ end }}

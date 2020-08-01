@@ -1,0 +1,47 @@
+<p>
+<div class="uk-grid-collapse uk-flex-middle" uk-grid style="border: solid 1px #e5e5e5; padding: 20px;">
+  <div class="uk-width-1-4">
+    {{ if and (.Get "aaid") (.Get "asin") }}
+    <a href="https://www.amazon.co.jp/dp/{{.Get "asin" }}?tag={{ .Get "aaid" }}" target="_blank" rel="noopener">
+      <img src="{{ .Get "img" }}" alt="" width="100%">
+    </a>
+    {{ else if and (.Get "raid") (.Get "rapl") }}
+    <a href="https://hb.afl.rakuten.co.jp/ichiba/{{ .Get "raid" }}/?pc={{ .Get "rapl" }}" target="_blank" rel="noopener">
+      <img src="{{ .Get "img" }}" alt="" width="100%">
+    </a>
+    {{ else }}
+    <img src="{{ .Get "img" }}" alt="" width="100%">
+    {{ end }}
+  </div>
+  <div class="uk-width-expand" style="margin-left: 20px;">
+    {{ if and (.Get "aaid") (.Get "asin") }}
+    <a class="uk-h4 uk-link uk-margin-small" href="https://www.amazon.co.jp/dp/{{.Get "asin" }}?tag={{ .Get "aaid" }}" target="_blank" rel="noopener">
+      {{.Get "title" }}
+    </a>
+    {{ else if and (.Get "raid") (.Get "rapl") }}
+    <a class="uk-h4 uk-link uk-margin-small" href="https://hb.afl.rakuten.co.jp/ichiba/{{ .Get "raid" }}/?pc={{ .Get "rapl" }}" target="_blank" rel="noopener">
+      {{.Get "title" }}
+    </a>
+    {{ else }}
+    <span class="uk-h4 uk-margin-small">
+      {{.Get "title" }}
+    </span>
+    {{ end }}
+    <p class="uk-text-meta">
+      {{.Get "desc" | truncate 100 }}
+    </p>
+    <div class="uk-grid-collapse uk-child-width-expand" uk-grid>
+      {{ if and (.Get "aaid") (.Get "asin") }}
+      <a class="btn btn--amazon" href="https://www.amazon.co.jp/dp/{{.Get "asin" }}?tag={{ .Get "aaid" }}" target="_blank" rel="noopener">
+        <i class="fab fa-amazon fa-lg fa-fw"></i>
+      </a>
+      {{ end }}
+      {{ if and (.Get "raid") (.Get "rapl") }}
+      <a class="btn btn--rakuten" href="https://hb.afl.rakuten.co.jp/ichiba/{{ .Get "raid" }}/?pc={{ .Get "rapl" }}" target="_blank" rel="noopener">
+        <i class="fas fa-registered fa-lg fa-fw"></i>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</div>
+</p>
