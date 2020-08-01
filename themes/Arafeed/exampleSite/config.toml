@@ -1,11 +1,10 @@
-baseURL = "http://example.org/"
+baseURL = "/"
 enableRobotsTXT = true
 googleAnalytics = "UA-123-45"
 hasCJKLanguage = true
 languageCode = "ja-jp"
 paginate = 12
 summaryLength = 140
-theme = "hugo-theme-shinku"
 title = "深紅"
 
 [author]

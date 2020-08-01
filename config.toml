@@ -44,8 +44,7 @@ hasCJKLanguage = true
 
   pageNotFoundTitle = "هذه الصفحة غير موجودة"
 
-  #casper or caspertwo
-  singleViewStyle = "casper"
+ 
 
 
 
