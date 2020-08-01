@@ -2,7 +2,6 @@ baseURL = "https://arafeed.netlify.app/"
 enableRobotsTXT = true
 googleAnalytics = "UA-123-45"
 hasCJKLanguage = true
-languageCode = "ja-jp"
 paginate = 12
 summaryLength = 140
 title = "深紅"
