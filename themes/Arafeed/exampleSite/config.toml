@@ -1,4 +1,4 @@
-baseURL = "/"
+baseURL = "https://arafeed.netlify.app/"
 enableRobotsTXT = true
 googleAnalytics = "UA-123-45"
 hasCJKLanguage = true
