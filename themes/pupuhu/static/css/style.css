@@ -1,0 +1,195 @@
+/* Outer Wrapper */
+
+.outer-wrapper {
+  width: 100%;
+  overflow: hidden;
+  background: #f8f9fa;
+}
+
+/* Header */
+
+.side {
+  background: #fff;
+  -webkit-box-shadow: 0 0px 7px -1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0px 7px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0px 7px -1px rgba(0, 0, 0, 0.1);
+  padding: 0px !important;
+}
+
+.brand {
+  text-align: center;
+  padding: 55px 3%;
+}
+
+.site-title {
+  display: none;
+}
+
+/* Menu PC */
+
+.vertical-menu {
+  padding: 30px 3%;
+}
+
+.vertical-menu li {
+  font-family: 'Roboto' ,Sans-Serif;
+  color: #555;
+  text-align: center;
+  list-style: none;
+  padding: 10px 15px;
+  position: relative;
+}
+
+.vertical-menu li::after {
+  content: "";
+  width: 10px;
+  height: 3px;
+  background: #eee;
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  margin-left: -5px;
+}
+
+/* Conten Wrapper */
+
+.wrapper {
+  padding: 40px 20px;
+}
+
+.content {
+  padding: 0px !important;
+}
+
+/* Grid Content */
+
+.grid {
+    background: transparent;
+    margin: 0 auto;
+}
+
+.grid-item {
+    float: left;
+    width: 300px;
+    padding: 10px;
+}
+
+.grid-item.item-0 {
+  -webkit-animation:aniload 1s;
+  -moz-animation:aniload 1s;
+  -ms-animation:aniload 1s;
+  -o-animation:aniload 1s;
+  animation:aniload 1s;
+}
+
+.grid-item.item-1 {
+  -webkit-animation:aniload 2s;
+  -moz-animation:aniload 2s;
+  -ms-animation:aniload 2s;
+  -o-animation:aniload 2s;
+  animation:aniload 2s;
+}
+
+.grid-item.item-2 {
+  -webkit-animation:aniload 3s;
+  -moz-animation:aniload 3s;
+  -ms-animation:aniload 3s;
+  -o-animation:aniload 3s;
+  animation:aniload 3s;
+}
+
+.grid-item.item-3 {
+  -webkit-animation:aniload 4s;
+  -moz-animation:aniload 4s;
+  -ms-animation:aniload 4s;
+  -o-animation:aniload 4s;
+  animation:aniload 4s;
+}
+
+.grid-item.item-4 {
+  -webkit-animation:aniload 5s;
+  -moz-animation:aniload 5s;
+  -ms-animation:aniload 5s;
+  -o-animation:aniload 5s;
+  animation:aniload 5s;
+}
+
+.grid-item.item-5 {
+  -webkit-animation:aniload 6s;
+  -moz-animation:aniload 6s;
+  -ms-animation:aniload 6s;
+  -o-animation:aniload 6s;
+  animation:aniload 6s;
+}
+
+.grid-item.item-6 {
+  -webkit-animation:aniload 7s;
+  -moz-animation:aniload 7s;
+  -ms-animation:aniload 7s;
+  -o-animation:aniload 7s;
+  animation:aniload 7s;
+}
+
+@-webkit-keyframes aniload {
+  from {-webkit-transform:translate(0px, 1000px)}
+  to   {-webkit-transform:translate(0px, 0px)}
+}
+
+@-moz-keyframes aniload {
+  from {-moz-transform:translate(0px, 1000px)}
+  to   {-moz-transform:translate(0px, 0px)}
+}
+
+@-ms-keyframes aniload {
+  from {-ms-transform:translate(0px, 1000px)}
+  to   {-ms-transform:translate(0px, 0px)}
+}
+
+@-o-keyframes aniload {
+  from {-o-transform:translate(0px, 1000px)}
+  to   {-o-transform:translate(0px, 0px)}
+}
+
+@keyframes aniload {
+  from {transform:translate(0px, 1000px)}
+  to   {transform:translate(0px, 0px)}
+}
+
+.post-thumb {
+    width: 100%;
+    max-width: 300px;
+}
+
+.post-card {
+  border: 1px solid rgba(0,0,0,.125);
+  padding-bottom: 20px;
+  background: #fff;
+}
+
+.snippet-wrapper {
+  padding: 10px 15px;
+}
+
+.card-title {
+  font-size: 150%;
+  margin-bottom: 10px !important;
+}
+
+.snippet {
+  font-size: 100%;
+  color: #999;
+}
+
+/* Footer */
+
+.bikini-bottom {
+  color: #fff;
+  background: #bdc3c7;
+  padding: 40px;
+  text-align: center;
+  height: 100px;
+}
+
+.bikini-bottom a{
+  color: #fff;
+}

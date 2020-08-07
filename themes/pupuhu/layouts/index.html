@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {{ partial "head.html" . }}
+    </head>
+    <body>
+      <div class="outer-wrapper">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col side">
+              {{ partial "header.html" . }}
+            </div>
+            <div class="col-9 content">
+              {{ partial "posting.html" . }}
+              {{ partial "footer.html" . }}
+            <div class="col">
+          </div>
+        </div>
+      {{ partial "js.init.html" . }}
+    </body>
+</html>

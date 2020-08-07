@@ -1,0 +1,29 @@
+<article class="wrapper">
+  <div class="grid">
+      {{ $paginator := .Paginate (where .Data.Pages "Type" "post") 6 }}
+      {{ range $paginator.Pages }}
+      <div class="grid-item">
+        <div class="post-card">
+          <div class="featured-img">
+            <a href="{{ .RelPermalink }}">
+              <img class='post-thumb' src='{{ if eq .Params.Image.src "" }}http://lorempixel.com/320/160{{else}}{{ .Params.Image.src }}{{end}}' alt='{{ .Title }}'>
+            </a>
+          </div>
+          <div class="snippet-wrapper">
+            <time>{{ .Date.Format "Jan 2, 2006" }}</time>
+          <h2 class="card-title">
+            <a class="text-dark" href="{{ .RelPermalink }}">{{ .Title }}</a>
+          </h2>
+          <div class="snippet">
+            {{ slicestr .Summary 0 150}}
+          </div>
+        </div>
+      </div>
+      </div>
+      {{ end }}
+  </div>
+</article>
+
+<div class="container">
+    {{ partial "pagination.html" . }}
+</div>

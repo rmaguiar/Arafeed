@@ -1,0 +1,46 @@
+<script src="/js/jquery-2.2.3.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/isotope.js"></script>
+
+<script>
+jQuery(document).ready(function ($) {
+
+$('.grid').isotope({
+  itemSelector: '.grid-item',
+	layoutMode: 'masonry',
+	stamp: '.stamp',
+  	masonry: {
+    columnWidth: 100,
+    isFitWidth: true
+  }
+});
+
+    $grid.imagesLoaded().progress(function() {
+      setTimeout(function(){
+        $grid.isotope('layout');
+      },200);
+    });
+});
+
+
+
+    $('.thumbnail-post').on('touchstart', function (e) {
+        'use strict'; //satisfy code inspectors
+        var link = $(this); //preselect the link
+        if (link.hasClass('hover')) {
+            return true;
+        } else {
+            link.addClass('hover');
+            $('.thumbnail-post').not(this).removeClass('hover');
+            e.preventDefault();
+            return false; //extra, and to make sure the function has consistent return points
+        }
+    });
+
+	$('.grid-item').each( function( index ) {
+
+   $(this).addClass('item-' + index);
+
+	});
+
+</script>
