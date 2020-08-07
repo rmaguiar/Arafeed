@@ -31,7 +31,7 @@
 </div>
 <div class="widget">
    <ul class="list-group">
-      {{ range first 10 .Site.Taxonomies.tags.ByCount }}
+      {{ range first 10 $.Site.Taxonomies.tags.ByCount }}
       <a href="/tags/{{ .Name | urlize }}" class="list-group-item list-group-item-action" title="{{ .Name }}">
          <div class="row">
             <div class="col-12">
