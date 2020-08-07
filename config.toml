@@ -3,7 +3,7 @@ baseurl = "https://arafeed.netlify.app/"
 languageCode = "en-us"
 title = "Oblate"
 themesDir = "themes"
-theme = "pupuhu"
+theme = "hugo"
 # Enter your tracking code to enable Google Analytics
 googleAnalytics = ""
 # Disable comments by leaving disqusShortname empty
