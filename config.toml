@@ -11,6 +11,3 @@ disqusShortname = ""
 [taxonomies]
   category = "categories"
 
-
-[outputs]
-home = ["HTML", "RSS"]
